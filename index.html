@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuesta</title>
+    <link rel="stylesheet" href="css/estilos.css" type="text/css"/>
+</head>
+<body>
+    <h1>Encuesta</h1>
+    <form id="surveyForm">
+        <div class="question orange">
+            <label>1. ¿Javascript es fácil de aprender?</label><br>
+            <input type="radio" name="Pregunta 1" value="Sí"> Sí<br>
+            <input type="radio" name="Pregunta 1" value="Casi Todo"> Casi Todo<br>
+            <input type="radio" name="Pregunta 1" value="Casi Nada"> Casi Nada<br>
+            <input type="radio" name="Pregunta 1" value="No"> No
+        </div>
+        <div class="question green">
+            <label>2. ¿Los elementos son sencillos de implementar?</label><br>
+            <input type="radio" name="Pregunta 2" value="Sí"> Sí<br>
+            <input type="radio" name="Pregunta 2" value="Casi Todo"> Casi Todo<br>
+            <input type="radio" name="Pregunta 2" value="Casi Nada"> Casi Nada<br>
+            <input type="radio" name="Pregunta 2" value="No"> No
+        </div>
+        <div class="question orange">
+            <label>3. ¿Yo puedo desarrollar páginas profesionales con JS?</label><br>
+            <input type="radio" name="Pregunta 3" value="Sí"> Sí<br>
+            <input type="radio" name="Pregunta 3" value="Casi Todo"> Casi Todo<br>
+            <input type="radio" name="Pregunta 3" value="Casi Nada"> Casi Nada<br>
+            <input type="radio" name="Pregunta 3" value="No"> No
+        </div>
+        <button type="button" onclick="submitSurvey()">Enviar</button>
+    </form>
+    <div id="results"></div>
+
+    <script>
+        function submitSurvey() {
+            const form = document.getElementById('surveyForm');
+            const results = document.getElementById('results');
+            const formData = new FormData(form);
+            let output = '<h2>Resultados de la Encuesta</h2>';
+            formData.forEach((value, key) => {
+                output += `<p>${key}: ${value}</p>`;
+            });
+            results.innerHTML = output;
+        }
+    </script>
+</body>
+</html>
